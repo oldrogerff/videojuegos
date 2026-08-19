@@ -1,0 +1,35 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-red: #ff003c;
+    --dark-bg: #0a0a0e;
+}
+
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--dark-bg); color: white; }
+
+header { padding: 30px; text-align: center; background: #000; border-bottom: 2px solid var(--neon-blue); }
+.logo { font-size: 1.8rem; font-weight: bold; color: white; text-shadow: 0 0 10px var(--neon-blue); }
+.logo span { color: var(--neon-red); }
+
+.location-tag { text-align: center; padding: 10px; background: var(--neon-red); font-weight: bold; }
+
+.hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px; }
+.card { background: #16161a; padding: 20px; text-align: center; border: 1px solid #333; transition: 0.3s; }
+.card:hover { border-color: var(--neon-blue); box-shadow: 0 0 15px var(--neon-blue); }
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+footer { text-align: center; padding: 30px; border-top: 2px solid var(--neon-red); font-style: italic; color: var(--neon-blue); }
