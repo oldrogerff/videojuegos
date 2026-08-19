@@ -4,32 +4,49 @@
     --dark-bg: #0a0a0e;
 }
 
-body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--dark-bg); color: white; }
-
-header { padding: 30px; text-align: center; background: #000; border-bottom: 2px solid var(--neon-blue); }
-.logo { font-size: 1.8rem; font-weight: bold; color: white; text-shadow: 0 0 10px var(--neon-blue); }
-.logo span { color: var(--neon-red); }
-
-.location-tag { text-align: center; padding: 10px; background: var(--neon-red); font-weight: bold; }
-
-.hero { height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px; }
-.card { background: #16161a; padding: 20px; text-align: center; border: 1px solid #333; transition: 0.3s; }
-.card:hover { border-color: var(--neon-blue); box-shadow: 0 0 15px var(--neon-blue); }
-
-.floating-whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25d366;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    z-index: 1000;
+/* FONDO CON TEMÁTICA DE VIDEOJUEGOS MÓVILES */
+body { 
+    margin: 0; 
+    font-family: 'Roboto', sans-serif; 
+    background: linear-gradient(rgba(10, 10, 14, 0.85), rgba(10, 10, 14, 0.85)), 
+                url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white; 
 }
 
-footer { text-align: center; padding: 30px; border-top: 2px solid var(--neon-red); font-style: italic; color: var(--neon-blue); }
+/* TÍTULOS */
+.main-title { text-align: center; padding: 40px 20px; }
+.main-title h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue); margin: 0; }
+.subtitle { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--neon-red); text-shadow: 0 0 15px var(--neon-red); margin: 0; }
+
+.location-bar { text-align: center; padding: 15px; background: rgba(255, 0, 60, 0.2); border: 1px solid var(--neon-red); color: #ffcccc; text-transform: uppercase; letter-spacing: 2px; }
+
+/* TÍTULO DE CATÁLOGO */
+.section-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    margin-top: 40px;
+}
+
+/* GRID DE 2 COLUMNAS */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: auto; padding: 30px 50px 50px 50px; }
+
+/* EFECTO GIRO (FLIP CARD) */
+.card-container { perspective: 1000px; cursor: pointer; display: block; height: 320px; }
+.flip-checkbox { display: none; }
+.card { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-checkbox:checked + .card { transform: rotateY(180deg); }
+
+.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid #333; background: rgba(22, 22, 26, 0.9); border-radius: 15px; }
+.card-front img { width: 100%; height: 180px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px; }
+.card-back { transform: rotateY(180deg); background: rgba(10, 10, 14, 0.95); border: 2px solid var(--neon-blue); padding: 15px; text-align: left; }
+
+/* BOTÓN WHATSAPP */
+.floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 0 20px #25d366; z-index: 1000; }
+
+footer { text-align: center; padding: 40px; border-top: 1px solid #333; background: rgba(0, 0, 0, 0.5); }
+.quote { font-size: 1.2rem; font-style: italic; color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 243, 255, 0.3); }
