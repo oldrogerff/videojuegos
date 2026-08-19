@@ -1,52 +1,315 @@
-:root {
-    --neon-blue: #00f3ff;
-    --neon-red: #ff003c;
-    --dark-bg: #0a0a0e;
-}
-
-/* FONDO CON TEMÁTICA DE VIDEOJUEGOS MÓVILES */
-body { 
-    margin: 0; 
-    font-family: 'Roboto', sans-serif; 
-    background: linear-gradient(rgba(10, 10, 14, 0.85), rgba(10, 10, 14, 0.85)), 
-                url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop');
+/* ==========================================
+   ESTILOS GENERALES Y FONDO GAMER (CON TU IMAGEN)
+========================================== */
+body {
+    background: linear-gradient(rgba(13, 13, 13, 0.75), rgba(13, 13, 13, 0.75)), url('wallpaper.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: white; 
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 120px; /* Espacio para el carrito flotante */
 }
 
-/* TÍTULOS */
-.main-title { text-align: center; padding: 40px 20px; }
-.main-title h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue); margin: 0; }
-.subtitle { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--neon-red); text-shadow: 0 0 15px var(--neon-red); margin: 0; }
+/* ==========================================
+   ENCABEZADO Y TÍTULOS
+========================================== */
+header {
+    text-align: center;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #161616, #1a1a1a);
+    border-bottom: 3px solid #ff4757;
+    box-shadow: 0 4px 20px rgba(255, 71, 87, 0.3);
+}
 
-.location-bar { text-align: center; padding: 15px; background: rgba(255, 0, 60, 0.2); border: 1px solid var(--neon-red); color: #ffcccc; text-transform: uppercase; letter-spacing: 2px; }
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-/* TÍTULO DE CATÁLOGO */
+h1 {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.subtitle {
+    color: #ff4757;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+}
+
+.location-bar {
+    text-align: center;
+    background: linear-gradient(90deg, #ff4757, #ff6b81);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
 .section-title {
     text-align: center;
+    margin: 40px 0 20px 0;
+    color: #00ffcc;
     font-family: 'Orbitron', sans-serif;
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-    margin-top: 40px;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
 }
 
-/* GRID DE 2 COLUMNAS */
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 800px; margin: auto; padding: 30px 50px 50px 50px; }
+/* ==========================================
+   GRILLA Y TARJETAS DE JUEGOS
+========================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-/* EFECTO GIRO (FLIP CARD) */
-.card-container { perspective: 1000px; cursor: pointer; display: block; height: 320px; }
-.flip-checkbox { display: none; }
-.card { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
-.flip-checkbox:checked + .card { transform: rotateY(180deg); }
+.card-container {
+    perspective: 1000px;
+    background: transparent;
+    height: 380px;
+    cursor: pointer;
+    display: block;
+}
 
-.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid #333; background: rgba(22, 22, 26, 0.9); border-radius: 15px; }
-.card-front img { width: 100%; height: 180px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px; }
-.card-back { transform: rotateY(180deg); background: rgba(10, 10, 14, 0.95); border: 2px solid var(--neon-blue); padding: 15px; text-align: left; }
+.flip-checkbox {
+    display: none;
+}
 
-/* BOTÓN WHATSAPP */
-.floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 0 20px #25d366; z-index: 1000; }
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
 
-footer { text-align: center; padding: 40px; border-top: 1px solid #333; background: rgba(0, 0, 0, 0.5); }
-.quote { font-size: 1.2rem; font-style: italic; color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 243, 255, 0.3); }
+.flip-checkbox:checked + .card {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.card-front {
+    background: rgba(22, 22, 22, 0.95);
+    border: 2px solid #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.card-front:hover {
+    border-color: #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+.card-front img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-front h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.card-front p {
+    color: #00ffcc;
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.card-back {
+    background: rgba(30, 30, 30, 0.97);
+    color: white;
+    transform: rotateY(180deg);
+    border: 2px solid #ff4757;
+    align-items: stretch;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.card-back h3 {
+    text-align: center;
+    color: #ff4757;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+/* ==========================================
+   LISTA DE PRECIOS Y BOTONES
+========================================== */
+.price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.price-row span:nth-child(2) {
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+.btn-add {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-add:hover {
+    background: #ff6b81;
+    transform: scale(1.05);
+}
+
+.section-header {
+    font-size: 0.85rem;
+    color: #ff4757;
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* ==========================================
+   PANEL FLOTANTE DEL CARRITO (WHATSAPP)
+========================================== */
+.cart-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.98);
+    border-top: 2px solid #25d366;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+.cart-info {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.cart-total {
+    color: #00ffcc;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-whatsapp:hover {
+    background: #20ba5a;
+    transform: scale(1.02);
+}
+
+.btn-clear {
+    background: #333;
+    color: #aaa;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-clear:hover {
+    background: #444;
+    color: white;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #111;
+    margin-top: 40px;
+    color: #888;
+    border-top: 1px solid #222;
+}
+/* ==========================================
+   CORRECCIÓN DEL BOTÓN FLOTANTE DE WHATSAPP
+========================================== */
+.cart-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(18, 18, 18, 0.95) !important;
+    border-top: 2px solid #25d366 !important;
+    padding: 12px 20px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.8) !important;
+    z-index: 9999 !important;
+}
